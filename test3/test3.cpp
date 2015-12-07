@@ -1,9 +1,11 @@
 #include"test3.h"
+
 BEGIN_MESSAGE_MAP(CTestWnd,CFrameWnd)
 	ON_MESSAGE(WM_LBUTTONDOWN,OnLButtonDown)
 	ON_MESSAGE(WM_LBUTTONUP, OnLButtonUp)
 	ON_MESSAGE(WM_PAINT, OnPaint)
 	ON_MESSAGE(WM_MOUSEMOVE, OnMouseMove)
+	ON_MESSAGE(WM_KEYUP,OnKeyUp)
 END_MESSAGE_MAP()
 
 CTestWnd::CTestWnd()
@@ -30,9 +32,6 @@ BOOL CTestApp::InitInstance()
 
 LRESULT CTestWnd::OnLButtonDown(WPARAM wParam, LPARAM lParam)
 {
-	//SetCursor(theApp.LoadCursorW(IDC_CROSS));
-	//HCURSOR hCursor = theApp.LoadStandardCursor(IDC_CROSS);
-	//SetCursor(hCursor);
 	if (wParam & MK_CONTROL)
 	{
 		x1 = LOWORD(lParam);
@@ -55,6 +54,12 @@ LRESULT CTestWnd::OnLButtonDown(WPARAM wParam, LPARAM lParam)
 		Draw_Mode = true;
 		InvalidateRect(NULL);
 	}
+	if (Draw_Mode)
+	{
+		//SetCursor(theApp.LoadCursorW(IDC_CROSS));
+		HCURSOR hCursor = theApp.LoadStandardCursor(IDC_CROSS);
+		SetCursor(hCursor);
+	}
 	return TRUE;
 }
 
@@ -62,6 +67,8 @@ LRESULT CTestWnd::OnMouseMove(WPARAM wParam, LPARAM lParam)
 {
 	if( Draw_Mode )
 	{
+		HCURSOR hCursor = theApp.LoadStandardCursor(IDC_CROSS);
+		SetCursor(hCursor);
 		x2 = LOWORD(lParam);
 		y2 = HIWORD(lParam);
 		InvalidateRect(NULL);
@@ -75,10 +82,16 @@ LRESULT CTestWnd::OnLButtonUp(WPARAM wParam, LPARAM lParam)
 	return TRUE;
 }
 
+LRESULT CTestWnd::OnKeyUp(WPARAM wParam, LPARAM lParam)
+{
+	Draw_Mode = false;
+	return TRUE;
+}
+
 LRESULT CTestWnd::OnPaint(WPARAM wParam, LPARAM lParam)
 {
 	CPaintDC dc(this);
-	dc.SelectStockObject(BLACK_PEN);
+	dc.SelectStockObject(GRAY_BRUSH);
 	if( Draw_Rectangle ) dc.Rectangle(x1, y1, x2, y2);
 	if( Draw_Ellipse ) dc.Ellipse(x1, y1, x2, y2);
 	return TRUE;

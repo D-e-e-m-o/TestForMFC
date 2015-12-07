@@ -10,6 +10,7 @@ public:
 	LRESULT OnLButtonDown(WPARAM wParam, LPARAM lParam);
 	LRESULT OnMouseMove(WPARAM wParam, LPARAM lParam);
 	LRESULT OnLButtonUp(WPARAM wParam, LPARAM lParam);
+	LRESULT OnKeyUp(WPARAM wParam, LPARAM lParam);
 	int x1, y1, x2, y2;
 	bool Draw_Rectangle,Draw_Ellipse,Draw_Mode;
 	CTestWnd();
