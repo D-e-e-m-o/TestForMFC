@@ -21,7 +21,7 @@ CTestWnd::CTestWnd()
 BOOL CTestApp::InitInstance()
 {
 	CTestWnd *pMainWnd = new CTestWnd();
-	pMainWnd->Create(NULL, _T("Program for Test3"));
+	pMainWnd->Create(NULL, _T("Program for Test4"));
 	pMainWnd->ShowWindow(m_nCmdShow);
 	pMainWnd->UpdateWindow();
 	m_pMainWnd = pMainWnd;

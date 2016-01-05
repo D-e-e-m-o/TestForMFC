@@ -26,9 +26,6 @@ void Ctest7Dlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	DDX_Radio(pDX, IDC_SOLID, m_nStyle);
-	//DDX_Control(pDX, IDC_RED, m_nRed);
-	//DDX_Control(pDX, IDC_BLUE, m_nBlue);
-	//DDX_Control(pDX, IDC_GREEN, m_nGreen);
 	DDX_Control(pDX, IDC_RED, m_Red);
 	DDX_Control(pDX, IDC_GREEN, m_Green);
 	DDX_Control(pDX, IDC_BLUE, m_Blue);
@@ -39,9 +36,6 @@ BEGIN_MESSAGE_MAP(Ctest7Dlg, CDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDCANCEL, &Ctest7Dlg::OnBnClickedCancel)
-	//ON_BN_CLICKED(IDC_RADIO2, &Ctest7Dlg::OnBnClickedRadio2)
-	ON_EN_CHANGE(IDC_EDIT1, &Ctest7Dlg::OnEnChangeEdit1)
-	//ON_NOTIFY(NM_THEMECHANGED, IDC_SCROLLBAR2, &Ctest7Dlg::OnNMThemeChangedScrollbar2)
 	ON_BN_CLICKED(IDC_DRAW, &Ctest7Dlg::OnClickedDraw)
 	ON_WM_HSCROLL()
 	ON_BN_CLICKED(IDC_DISPLAY, &Ctest7Dlg::OnClickedDisplay)
@@ -153,23 +147,6 @@ void Ctest7Dlg::OnBnClickedCancel()
 {
 	// TODO: 在此添加控件通知处理程序代码
 	CDialog::OnCancel();
-}
-
-
-void Ctest7Dlg::OnBnClickedRadio2()
-{
-	// TODO: 在此添加控件通知处理程序代码
-}
-
-
-void Ctest7Dlg::OnEnChangeEdit1()
-{
-	// TODO:  如果该控件是 RICHEDIT 控件，它将不
-	// 发送此通知，除非重写 CDialog::OnInitDialog()
-	// 函数并调用 CRichEditCtrl().SetEventMask()，
-	// 同时将 ENM_CHANGE 标志“或”运算到掩码中。
-
-	// TODO:  在此添加控件通知处理程序代码
 }
 
 

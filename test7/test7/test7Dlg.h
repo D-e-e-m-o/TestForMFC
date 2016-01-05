@@ -33,9 +33,6 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnBnClickedCancel();
-	afx_msg void OnBnClickedRadio2();
-	afx_msg void OnEnChangeEdit1();
-//	afx_msg void OnNMThemeChangedScrollbar2(NMHDR *pNMHDR, LRESULT *pResult);
 	int m_nStyle;
 	CRect rt;
 	afx_msg void OnClickedDraw();
